@@ -169,7 +169,7 @@ double roll_hampel(NV& x, const int& n, const int& ind) {
   std::sort(absMinusMedian.begin(), absMinusMedian.end());
   double medianAbsMinusMedian =  n % 2 ? absMinusMedian[n / 2] : (absMinusMedian[n / 2 - 1] + absMinusMedian[n / 2]) / 2;
 
-  // Calcualte return value
+  // Calculate return value
   double S0 = L * medianAbsMinusMedian;
   double out_ = fabs(x[ind] - x0) / S0;
 

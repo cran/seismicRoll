@@ -19,6 +19,23 @@
 #' 
 #' \strong{History}
 #' 
+#' version 1.1.2 -- bug fix
+#' \itemize{
+#'   \item{\code{findOutliers()} exits if the \code{roll_hampel()} return vector consists entirely of \code{NA} values.}
+#' }
+#' 
+#' version 1.1.0 -- findOutliers update and bug fix
+#' \itemize{
+#'     \item{\code{findOutliers()} function default argument values changed. Now \code{thresholdMin=10},
+#'           \code{selectivity=NA}, and \code{fixedThreshold=TRUE}.}
+#'     \item{Bug fix in \code{roll_hampel()} handling \code{NA} values.}
+#'}
+#' 
+#' version 1.0.3 -- findOutliers update
+#' \itemize{
+#'   \item{Added \code{fixedThreshold} argument to \code{findOutliers()} function.}
+#' }
+#' 
 #' version 1.0.0 -- initial release
 #' 
 #' @useDynLib seismicRoll
