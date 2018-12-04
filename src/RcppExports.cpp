@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // roll_mean_numeric_vector
 NumericVector roll_mean_numeric_vector(NumericVector x, int n, int increment, int alignCode);
-RcppExport SEXP seismicRoll_roll_mean_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP, SEXP alignCodeSEXP) {
+RcppExport SEXP _seismicRoll_roll_mean_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP, SEXP alignCodeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -21,7 +21,7 @@ END_RCPP
 }
 // roll_median_numeric_vector
 NumericVector roll_median_numeric_vector(NumericVector x, int n, int increment);
-RcppExport SEXP seismicRoll_roll_median_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP) {
+RcppExport SEXP _seismicRoll_roll_median_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -34,7 +34,7 @@ END_RCPP
 }
 // roll_hampel_numeric_vector
 NumericVector roll_hampel_numeric_vector(NumericVector x, int n, int increment);
-RcppExport SEXP seismicRoll_roll_hampel_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP) {
+RcppExport SEXP _seismicRoll_roll_hampel_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -47,7 +47,7 @@ END_RCPP
 }
 // roll_sd_numeric_vector
 NumericVector roll_sd_numeric_vector(NumericVector x, int n, int increment, int alignCode);
-RcppExport SEXP seismicRoll_roll_sd_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP, SEXP alignCodeSEXP) {
+RcppExport SEXP _seismicRoll_roll_sd_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP, SEXP alignCodeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -61,7 +61,7 @@ END_RCPP
 }
 // roll_stalta_numeric_vector
 NumericVector roll_stalta_numeric_vector(NumericVector x, int n_sta, int n_lta, int increment);
-RcppExport SEXP seismicRoll_roll_stalta_numeric_vector(SEXP xSEXP, SEXP n_staSEXP, SEXP n_ltaSEXP, SEXP incrementSEXP) {
+RcppExport SEXP _seismicRoll_roll_stalta_numeric_vector(SEXP xSEXP, SEXP n_staSEXP, SEXP n_ltaSEXP, SEXP incrementSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -72,4 +72,33 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(roll_stalta_numeric_vector(x, n_sta, n_lta, increment));
     return rcpp_result_gen;
 END_RCPP
+}
+// roll_range_numeric_vector
+NumericVector roll_range_numeric_vector(NumericVector x, int n, int increment, int alignCode);
+RcppExport SEXP _seismicRoll_roll_range_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP, SEXP alignCodeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type increment(incrementSEXP);
+    Rcpp::traits::input_parameter< int >::type alignCode(alignCodeSEXP);
+    rcpp_result_gen = Rcpp::wrap(roll_range_numeric_vector(x, n, increment, alignCode));
+    return rcpp_result_gen;
+END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_seismicRoll_roll_mean_numeric_vector", (DL_FUNC) &_seismicRoll_roll_mean_numeric_vector, 4},
+    {"_seismicRoll_roll_median_numeric_vector", (DL_FUNC) &_seismicRoll_roll_median_numeric_vector, 3},
+    {"_seismicRoll_roll_hampel_numeric_vector", (DL_FUNC) &_seismicRoll_roll_hampel_numeric_vector, 3},
+    {"_seismicRoll_roll_sd_numeric_vector", (DL_FUNC) &_seismicRoll_roll_sd_numeric_vector, 4},
+    {"_seismicRoll_roll_stalta_numeric_vector", (DL_FUNC) &_seismicRoll_roll_stalta_numeric_vector, 4},
+    {"_seismicRoll_roll_range_numeric_vector", (DL_FUNC) &_seismicRoll_roll_range_numeric_vector, 4},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_seismicRoll(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

@@ -2,22 +2,26 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 roll_mean_numeric_vector <- function(x, n, increment, alignCode) {
-    .Call('seismicRoll_roll_mean_numeric_vector', PACKAGE = 'seismicRoll', x, n, increment, alignCode)
+    .Call(`_seismicRoll_roll_mean_numeric_vector`, x, n, increment, alignCode)
 }
 
 roll_median_numeric_vector <- function(x, n, increment) {
-    .Call('seismicRoll_roll_median_numeric_vector', PACKAGE = 'seismicRoll', x, n, increment)
+    .Call(`_seismicRoll_roll_median_numeric_vector`, x, n, increment)
 }
 
 roll_hampel_numeric_vector <- function(x, n, increment) {
-    .Call('seismicRoll_roll_hampel_numeric_vector', PACKAGE = 'seismicRoll', x, n, increment)
+    .Call(`_seismicRoll_roll_hampel_numeric_vector`, x, n, increment)
 }
 
 roll_sd_numeric_vector <- function(x, n, increment, alignCode) {
-    .Call('seismicRoll_roll_sd_numeric_vector', PACKAGE = 'seismicRoll', x, n, increment, alignCode)
+    .Call(`_seismicRoll_roll_sd_numeric_vector`, x, n, increment, alignCode)
 }
 
 roll_stalta_numeric_vector <- function(x, n_sta, n_lta, increment) {
-    .Call('seismicRoll_roll_stalta_numeric_vector', PACKAGE = 'seismicRoll', x, n_sta, n_lta, increment)
+    .Call(`_seismicRoll_roll_stalta_numeric_vector`, x, n_sta, n_lta, increment)
+}
+
+roll_range_numeric_vector <- function(x, n, increment, alignCode) {
+    .Call(`_seismicRoll_roll_range_numeric_vector`, x, n, increment, alignCode)
 }
 

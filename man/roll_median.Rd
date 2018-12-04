@@ -54,4 +54,3 @@ points(outliers,a_fixed[outliers], col='red', lwd=2)
 \seealso{
 \code{\link{roll_hampel}}
 }
-

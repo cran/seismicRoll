@@ -51,9 +51,11 @@ roll_sd <- function( x, n=7, increment=1, align="center" ) {
       stop("increment must be >= 1.")
     }
     
-    result <- .Call("seismicRoll_roll_sd_numeric_vector", 
+    result <- .Call("_seismicRoll_roll_sd_numeric_vector", 
                     x, as.integer(n), as.integer(increment), 
                     as.integer(alignCode), PACKAGE="seismicRoll")
+
+    #result <- roll_sd_numeric_vector(x, as.integer(n), as.integer(increment))
 
     return (as.numeric(result))
     

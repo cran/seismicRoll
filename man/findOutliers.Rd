@@ -66,4 +66,3 @@ findOutliers(a)
 \seealso{
 \code{\link{roll_hampel}}
 }
-

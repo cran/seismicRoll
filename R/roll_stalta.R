@@ -110,9 +110,11 @@ roll_stalta <- function( x, n_sta, n_lta, increment=1 ) {
       stop("increment must be >= 1.")
     }
     
-    result <- .Call( "seismicRoll_roll_stalta_numeric_vector", 
+    result <- .Call( "_seismicRoll_roll_stalta_numeric_vector", 
                      x, as.integer(n_sta), as.integer(n_lta), as.integer(increment),
                      PACKAGE="seismicRoll")
+
+    #result <- roll_stalta_numeric_vector(x, as.integer(n_sta), as.integer(n_lta), as.integer(increment))
     
     return (as.numeric(result))
     

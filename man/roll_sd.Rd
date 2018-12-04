@@ -38,4 +38,3 @@ The \code{align} parameter determines the alignment of the current index within 
 \note{
 For \code{align="center"}, the window size is increased by one if necessary to guarantee an odd window size.
 }
-

@@ -53,9 +53,11 @@ roll_median <- function( x, n=7, increment=1 ) {
       stop("increment must be >= 1.")
     }
 
-    result <- .Call("seismicRoll_roll_median_numeric_vector", 
+    result <- .Call("_seismicRoll_roll_median_numeric_vector", 
                     x, as.integer(n), as.integer(increment),
                     PACKAGE="seismicRoll")
+
+    #result <- roll_median_numeric_vector(x, as.integer(n), as.integer(increment))
     
     return (as.numeric(result))
     

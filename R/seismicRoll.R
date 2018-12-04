@@ -15,10 +15,17 @@
 #'   \item{\code{\link{roll_median}} -- rolling median (for outlier replacement)}
 #'   \item{\code{\link{roll_sd}} -- rolling standard deviation}
 #'   \item{\code{\link{roll_stalta}} -- first break picker}
+#'   \item{\code{\link{roll_range}} -- rolling difference of max/min values}
 #' }
 #' 
 #' \strong{History}
 #' 
+#' version 1.1.3
+#' \itemize{
+#'   \item{minor changes to how the code compiles}
+#'   \item{add roll_range function}
+#' }
+#'
 #' version 1.1.2 -- bug fix
 #' \itemize{
 #'   \item{\code{findOutliers()} exits if the \code{roll_hampel()} return vector consists entirely of \code{NA} values.}
@@ -38,6 +45,6 @@
 #' 
 #' version 1.0.0 -- initial release
 #' 
-#' @useDynLib seismicRoll
-#' @importFrom Rcpp sourceCpp
+#' @useDynLib seismicRoll, .registration = TRUE
+#' @importFrom Rcpp evalCpp
 NULL

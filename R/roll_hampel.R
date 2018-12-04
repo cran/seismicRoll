@@ -54,9 +54,11 @@ roll_hampel <- function( x, n, increment=1 ) {
       stop("increment must be >= 1.")
     }
 
-    result <- .Call( "seismicRoll_roll_hampel_numeric_vector", 
+    result <- .Call( "_seismicRoll_roll_hampel_numeric_vector", 
                      x, as.integer(n), as.integer(increment), 
                      PACKAGE="seismicRoll")
+
+    #result <- roll_hampel_numeric_vector(x,as.integer(n),as.integer(increment))
     
     return (as.numeric(result))
     

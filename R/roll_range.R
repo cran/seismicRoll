@@ -1,10 +1,10 @@
 #' @export
-#' @title Rolling Mean with Alignment
+#' @title Rolling Range with Alignment
 #' @param x an \R numeric vector
 #' @param n integer window size
 #' @param increment integer shift to use when sliding the window to the next location
 #' @param align window alignment, one of \code{"left"|"center"|"right"}
-#' @description Fast rolling means with aligment using C++/Rcpp.
+#' @description Fast rolling range with aligment using C++/Rcpp.
 #' Additional performance gains can be achieved by skipping \code{increment} values between calculations.
 #' @details The window size \code{n} is interpreted as the full window length.
 #'   
@@ -18,19 +18,9 @@
 #'   \item{\code{align="right" [------*]} will cause the returned vector to have n-1 \code{NA} values at the left end.}
 #' }
 #' @note For \code{align="center"}, the window size is increased by one if necessary to guarantee an odd window size.
-#' @return A vector of rolling mean values of the same length as \code{x}.
-#' @examples
-#' x <- rep(1:5,each=10)
-#' plot(x,cex=0.8,pch=17,main="Test of roll_mean alignment with a 5-point window")
-#' points(roll_mean(x,5,1,'left'),cex=1.5,col='blue',type='b')
-#' points(roll_mean(x,5,1,'center'),cex=1.5,col='forestgreen',type='b')
-#' points(roll_mean(x,5,1,'right'),cex=1.5,col='red',type='b')
-#' legend("topleft",
-#'        legend=c('data','align=left','align=center','align=right'),
-#'        col=c('black','blue','forestgreen','red'),
-#'        pch=c(17,1,1,1))
+#' @return A vector of rolling values that difference the maximum and minimum values, of the same length as \code{x}.
 
-roll_mean <- function( x, n=7, increment=1, align="center" ) {
+roll_range <- function( x, n=7, increment=1, align="center" ) {
   
   if ( !is.vector(x) ) {
     
@@ -61,11 +51,9 @@ roll_mean <- function( x, n=7, increment=1, align="center" ) {
       stop("increment must be >= 1.")
     }
     
-    result <- .Call("_seismicRoll_roll_mean_numeric_vector", 
+    result <- .Call("_seismicRoll_roll_range_numeric_vector", 
                     x, as.integer(n), as.integer(increment), as.integer(alignCode),
                     PACKAGE="seismicRoll")
-
-    #result <- roll_mean_numeric_vector(x, as.integer(n), as.integer(increment), as.integer(alignCode))
     
     return (as.numeric(result))
     

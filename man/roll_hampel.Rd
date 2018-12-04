@@ -57,4 +57,3 @@ which(b > threshold)
 \seealso{
 \code{\link{roll_median}}
 }
-

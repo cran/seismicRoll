@@ -22,9 +22,16 @@ Currently exported functions include:
   \item{\code{\link{roll_median}} -- rolling median (for outlier replacement)}
   \item{\code{\link{roll_sd}} -- rolling standard deviation}
   \item{\code{\link{roll_stalta}} -- first break picker}
+  \item{\code{\link{roll_range}} -- rolling difference of max/min values}
 }
 
 \strong{History}
+
+version 1.1.3
+\itemize{
+  \item{minor changes to how the code compiles}
+  \item{add roll_range function}
+}
 
 version 1.1.2 -- bug fix
 \itemize{
@@ -45,4 +52,3 @@ version 1.0.3 -- findOutliers update
 
 version 1.0.0 -- initial release
 }
-

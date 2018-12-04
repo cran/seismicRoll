@@ -329,4 +329,74 @@ NumericVector roll_stalta_numeric_vector( NumericVector x, int n_sta, int n_lta,
 
 }
 
+// ----- roll_range --------------------------------------------------
+
+ inline
+double roll_range(NV& x, const int& n, const int& ind, const int& alignCode) {
+   double xMin = x[ind];
+   double xMax = x[ind];
+
+   for (int i=0; i<n; i++) {
+     if (alignCode == -1) { // index at left edge of window
+        if (x[ind +i] < xMin ) {
+             xMin = x[ind +i];
+        }
+        if (x[ind +i] > xMax ) {
+             xMax = x[ind +i];
+        }
+     } else if (alignCode == 0) { // index at center of window
+        int k = n / 2;
+        if (x[ind -k + i] < xMin) {
+            xMin = x[ind -k + i];
+        }
+        if (x[ind -k + i] > xMax) {
+            xMax = x[ind -k + i];
+        }
+     } else { // index at right edge of window
+        if (x[ind - i] < xMin) {
+             xMin = x[ind - i];
+        }
+        if (x[ind - i] > xMax) {
+             xMax = x[ind - i];
+        }
+     }
+   }
+
+   double out_ = xMax - xMin;
+   return out_;
+}
+
+// [[Rcpp::export]]
+NumericVector roll_range_numeric_vector( NumericVector x, int n, int increment, int alignCode ) {
+
+  int len = x.size();
+
+  // Initialize the output vector with NA's
+  NumericVector out(len, NA_REAL);
+
+  // Get the start and endpoints
+  int start = 0;
+  int end = len;
+  if (alignCode == -1) {
+    // "left" aligned means the index is at the left edge of the window
+    start = 0;
+    end = len - (n - 1);
+  } else if (alignCode == 0) {
+    // "center" aligned
+    start = n / 2;
+    end = len - n / 2;
+  } else {
+    // "right" aligned means the index is at the right edge of the window
+    start = n - 1;
+    end = len;
+  }
+
+  // For the valid region, calculate the result
+  for( int ind=start; ind<end; ind+=increment ) {
+    out[ind] = roll_range(x, n, ind, alignCode );
+  }
+
+  return out;
+
+}
 
