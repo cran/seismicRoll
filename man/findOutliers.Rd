@@ -4,8 +4,14 @@
 \alias{findOutliers}
 \title{Outlier Detection with a Rolling Hampel Filter}
 \usage{
-findOutliers(x, n = 41, thresholdMin = 10, selectivity = NA,
-  increment = 1, fixedThreshold = TRUE)
+findOutliers(
+  x,
+  n = 41,
+  thresholdMin = 10,
+  selectivity = NA,
+  increment = 1,
+  fixedThreshold = TRUE
+)
 }
 \arguments{
 \item{x}{an \R numeric vector}

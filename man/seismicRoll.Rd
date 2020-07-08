@@ -3,7 +3,6 @@
 \docType{package}
 \name{seismicRoll}
 \alias{seismicRoll}
-\alias{seismicRoll-package}
 \title{Fast Rolling Statistics for Seismology}
 \description{
 This package implements fast versions of 'roll'-ing functions primarily for use in
@@ -26,6 +25,11 @@ Currently exported functions include:
 }
 
 \strong{History}
+
+version 1.1.4
+\itemize{
+  \item{bug fix for roll_range when NA values present}
+}
 
 version 1.1.3
 \itemize{

@@ -1,4 +1,5 @@
 #include <Rcpp.h>
+#include <cmath>
 
 using namespace Rcpp;
 
@@ -338,23 +339,41 @@ double roll_range(NV& x, const int& n, const int& ind, const int& alignCode) {
 
    for (int i=0; i<n; i++) {
      if (alignCode == -1) { // index at left edge of window
+        if (std::isnan(xMin)) {
+            xMin = x[ind +i];
+        }
         if (x[ind +i] < xMin ) {
              xMin = x[ind +i];
+        }
+        if (std::isnan(xMax)) {
+             xMax = x[ind +i];
         }
         if (x[ind +i] > xMax ) {
              xMax = x[ind +i];
         }
      } else if (alignCode == 0) { // index at center of window
         int k = n / 2;
+        if (std::isnan(xMin)) {
+            xMin = x[ind -k + i];
+        }
         if (x[ind -k + i] < xMin) {
             xMin = x[ind -k + i];
+        }
+        if (std::isnan(xMax)) {
+             xMax = x[ind -k + i];
         }
         if (x[ind -k + i] > xMax) {
             xMax = x[ind -k + i];
         }
      } else { // index at right edge of window
+        if (std::isnan(xMin)) {
+            xMin = x[ind - i];
+        }
         if (x[ind - i] < xMin) {
              xMin = x[ind - i];
+        }
+        if (std::isnan(xMax)) {
+             xMax = x[ind -i];
         }
         if (x[ind - i] > xMax) {
              xMax = x[ind - i];
