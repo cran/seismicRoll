@@ -106,5 +106,5 @@ abline(v=first_break,col='red')
 }
 }
 \references{
-\href{http://en.wikipedia.org/wiki/First_break_picking}{First Break Picking}
+\href{https://en.wikipedia.org/wiki/First_break_picking}{First Break Picking}
 }

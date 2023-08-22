@@ -88,7 +88,7 @@
 #'      main='Test of STA/LTA first break picker on raw seismic data')
 #' abline(v=first_break,col='red')  
 #'}
-#' @references \href{http://en.wikipedia.org/wiki/First_break_picking}{First Break Picking}
+#' @references \href{https://en.wikipedia.org/wiki/First_break_picking}{First Break Picking}
 
 
 roll_stalta <- function( x, n_sta, n_lta, increment=1 ) {

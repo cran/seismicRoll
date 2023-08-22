@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // roll_mean_numeric_vector
 NumericVector roll_mean_numeric_vector(NumericVector x, int n, int increment, int alignCode);
 RcppExport SEXP _seismicRoll_roll_mean_numeric_vector(SEXP xSEXP, SEXP nSEXP, SEXP incrementSEXP, SEXP alignCodeSEXP) {
